@@ -1,6 +1,7 @@
 from locust import HttpUser, task, between
 import random
 import string
+import logging
 
 # 生成随机字符串
 def random_string(length):
@@ -45,6 +46,11 @@ class TransactionUser(HttpUser):
             transaction_id = response.json().get("id")
             if transaction_id:
                 self.created_transaction_ids.append(transaction_id)
+                logging.info(f"Created transaction with ID: {transaction_id}")
+            else:
+                logging.warning("Failed to get transaction ID from response.")
+        else:
+            logging.warning(f"Create transaction failed with status code: {response.status_code}")
 
     @task(1)
     def update_transaction(self):
