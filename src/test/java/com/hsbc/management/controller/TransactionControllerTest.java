@@ -59,7 +59,7 @@ public class TransactionControllerTest{
         // Act & Assert
         mockMvc.perform(get("/transactions")
                 .param("transactionNo", "12345")
-                .param("page", "0")
+                .param("page", "1")
                 .param("size", "10"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data.content[0].id").value(1L))

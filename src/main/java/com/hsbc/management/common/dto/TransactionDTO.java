@@ -39,14 +39,4 @@ public class TransactionDTO {
     @NotBlank(message = "description不能为空")
     @Size(min = 2, max = 30, message = "description长度必须大于2小于30")
     private String description;
-
-    /**
-     * 交易金额保留两位小数
-     * @param amount
-     */
-    public void setAmount(BigDecimal amount) {
-        // 保留两位小数
-        this.amount = amount.setScale(2, BigDecimal.ROUND_HALF_UP);
-    }
-
 }
