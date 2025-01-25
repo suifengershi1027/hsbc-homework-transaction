@@ -161,7 +161,6 @@ docker run -d -p 80:8080 hsbc-homework-transaction:v1.0
 * 根据ID查看交易记录
 ![img.png](images/get_transaction_by_id.png)
 * 创建交易记录
-![img.png](images/add_transaction.png)
 ![img.png](images/add_repeat_transaction.png)
 * 修改交易记录
 ![img.png](images/modify_transaction.png)
