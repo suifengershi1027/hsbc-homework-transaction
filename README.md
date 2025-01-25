@@ -177,11 +177,18 @@ mvn test
 * Locust：一个开源的、基于 Python 的性能测试工具，可用于分布式和可扩展的负载测试。它允许用户以类和方法的形式定义用户行为，非常适合模拟多种用户场景。
 * Python：作为脚本编写语言，借助其丰富的标准库（如 random 和 string）来生成随机数据，方便模拟真实的业务数据
 ##### 压测场景(qps=100, 查询接口)
-设置numbers of user=100，ramp up=60秒，压测10分钟，根据公式QPS = 用户数 / 平均响应时间，当平均响应时间为1秒时，100个用户并发理论上可以达到 QPS=100。
+设置numbers of user=100，ramp up=60秒，压测10分钟，根据公式QPS=用户数/平均响应时间，当平均响应时间为1秒时，100个用户并发理论上可以达到 QPS=100。
 ![img.png](images/load_press_100.png)
 ##### 压测报告
 ![img.png](images/press_stats_100.png)
 ![img.png](images/press_response_100.png)
+
+##### 压测场景(qps=100, 创建接口)
+设置numbers of user=100，ramp up=60秒，压测10分钟，根据公式QPS=用户数/平均响应时间，当平均响应时间为1秒时，100个用户并发理论上可以达到 QPS=100。
+
+##### 压测报告
+
+
 
 ## 后续工作
 
