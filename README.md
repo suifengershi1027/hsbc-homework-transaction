@@ -154,7 +154,7 @@ docker run -d -p 80:8080 hsbc-homework-transaction:v1.0
 ---
 
 ### 测试
-#### 功能测试
+#### 功能测试(部分case截图)
 * 分页获取交易记录
 ![img.png](images/list.png)
 * 根据ID查看交易记录
@@ -172,7 +172,7 @@ docker run -d -p 80:8080 hsbc-homework-transaction:v1.0
 mvn test
 ```
 ![img.png](images/unit_test.png)
-
+![img.png](images/unit_test_controller.png)
 #### 压力测试
 * Locust：一个开源的、基于 Python 的性能测试工具，可用于分布式和可扩展的负载测试。它允许用户以类和方法的形式定义用户行为，非常适合模拟多种用户场景。
 * Python：作为脚本编写语言，借助其丰富的标准库（如random和string）来生成随机数据，方便模拟真实的业务数据

@@ -31,3 +31,29 @@
 	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
 
 2025-01-25 17:19:36 [http-nio-8080-exec-3] ERROR c.h.m.e.GlobalExceptionHandler - biz error = Transaction with transactionNo 123 already exists.
+2025-01-25 17:52:48 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.hsbc.management.controller.TransactionControllerTest]: TransactionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-25 17:52:48 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.hsbc.management.HomeworkApplication for test class com.hsbc.management.controller.TransactionControllerTest
+2025-01-25 17:52:49 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-01-25 17:52:49 [main] INFO  c.h.m.c.TransactionControllerTest - Starting TransactionControllerTest using Java 21.0.1 with PID 61118 (started by fengpan in /Users/fengpan/document/hsbc-homework-transaction)
+2025-01-25 17:52:49 [main] INFO  c.h.m.c.TransactionControllerTest - No active profile set, falling back to 1 default profile: "default"
+2025-01-25 17:52:52 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2025-01-25 17:52:52 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2025-01-25 17:52:52 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2025-01-25 17:52:52 [main] INFO  c.h.m.c.TransactionControllerTest - Started TransactionControllerTest in 2.921 seconds (process running for 4.751)
+2025-01-25 17:52:52 [main] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$PlainPageSerializationWarning - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2025-01-25 17:54:30 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.hsbc.management.controller.TransactionControllerTest]: TransactionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-25 17:54:30 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.hsbc.management.HomeworkApplication for test class com.hsbc.management.controller.TransactionControllerTest
+2025-01-25 17:54:31 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-01-25 17:54:31 [main] INFO  c.h.m.c.TransactionControllerTest - Starting TransactionControllerTest using Java 21.0.1 with PID 61971 (started by fengpan in /Users/fengpan/document/hsbc-homework-transaction)
+2025-01-25 17:54:31 [main] INFO  c.h.m.c.TransactionControllerTest - No active profile set, falling back to 1 default profile: "default"
+2025-01-25 17:54:33 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2025-01-25 17:54:33 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2025-01-25 17:54:33 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
+2025-01-25 17:54:33 [main] INFO  c.h.m.c.TransactionControllerTest - Started TransactionControllerTest in 2.892 seconds (process running for 5.142)
+2025-01-25 17:54:33 [main] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$PlainPageSerializationWarning - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+

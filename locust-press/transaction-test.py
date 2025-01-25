@@ -46,7 +46,7 @@ class TransactionUser(HttpUser):
         }
         # 发送 POST 请求到创建交易的接口
         response = self.client.post("/api/transactions", json=transaction_data)
-        if response.status_code == 201:
+        if response.status_code == 200:
             # 如果创建成功，记录交易 ID 用于后续的修改和删除操作
             transaction_id = response.json().get("id")
             if transaction_id:

@@ -12,6 +12,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hsbc.management.common.dto.TransactionDTO;
 import com.hsbc.management.common.dto.TransactionModifyDTO;
 import com.hsbc.management.common.vo.TransactionVO;
@@ -35,6 +36,8 @@ import java.util.Optional;
 
 @WebMvcTest(TransactionController.class)
 public class TransactionControllerTest{
+
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     @Autowired
     private MockMvc mockMvc;
@@ -134,19 +137,24 @@ public class TransactionControllerTest{
     @Test
     public void testModifyTransaction() throws Exception {
         // Arrange
-        TransactionVO transactionVO = new TransactionVO();
-        transactionVO.setId(1L);
-        transactionVO.setTransactionNo("12345");
+        TransactionModifyDTO dto = new TransactionModifyDTO();
+        dto.setDescription("Test Transaction");
+        dto.setAmount(new BigDecimal("100.00"));
+        dto.setSourceAccountId(1L);
+        dto.setTargetAccountId(2L);
     
-        when(transactionService.modifyTransaction(anyLong(), any(TransactionModifyDTO.class))).thenReturn(transactionVO);
+        TransactionVO vo = new TransactionVO();
+        vo.setId(1L);
+        vo.setTransactionNo("12345");
+    
+        when(transactionService.modifyTransaction(any(Long.class), any(TransactionModifyDTO.class))).thenReturn(vo);
     
         // Act & Assert
-        mockMvc.perform(put("/transactions/{id}", 1L)
-                .contentType("application/json")
-                .content("{\"amount\": 100.0,\"transactionNo\": \"12345\",\"sourceAccountId\": 1,\"targetAccountId\": 2,\"description\": \"Test Transaction\"}"))
+        mockMvc.perform(put("/transactions/1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(dto)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data.id").value(1L))
                 .andExpect(jsonPath("$.data.transactionNo").value("12345"));
     }
-
 }

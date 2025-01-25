@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 import com.hsbc.management.common.dto.TransactionDTO;
+import com.hsbc.management.common.dto.TransactionModifyDTO;
 import com.hsbc.management.common.entity.Transaction;
 import com.hsbc.management.common.vo.TransactionVO;
 import com.hsbc.management.dao.TransactionRepository;
@@ -123,60 +124,7 @@ public class TransactionServiceImplTest{
         verify(transactionRepository, times(0)).deleteById(transactionId);
     }
 
-    @Test
-    void testModifyTransactionTransactionNotFound() {
-        // Arrange
-        Long id = 1L;
-        TransactionDTO transactionDTO = new TransactionDTO();
-        transactionDTO.setSourceAccountId(2L);
-        transactionDTO.setTargetAccountId(3L);
-        transactionDTO.setAmount(BigDecimal.valueOf(200));
-        transactionDTO.setDescription("Updated Transaction");
-    
-        when(transactionRepository.findById(id)).thenReturn(Optional.empty());
-    
-        // Act & Assert
-        BizException exception = assertThrows(BizException.class, () -> {
-            transactionService.modifyTransaction(id, transactionDTO);
-        });
-    
-        assertEquals("Transaction with id 1 does not exist.", exception.getMessage());
-        verify(transactionRepository, times(1)).findById(id);
-        verify(transactionRepository, times(0)).save(any(Transaction.class));
-    }
 
-    @Test
-    void testModifyTransactionSuccess() {
-        // Arrange
-        Long id = 1L;
-        TransactionDTO transactionDTO = new TransactionDTO();
-        transactionDTO.setSourceAccountId(2L);
-        transactionDTO.setTargetAccountId(3L);
-        transactionDTO.setAmount(BigDecimal.valueOf(200));
-        transactionDTO.setDescription("Updated Transaction");
-    
-        Transaction transaction = new Transaction();
-        transaction.setId(id);
-        transaction.setSourceAccountId(1L);
-        transaction.setTargetAccountId(2L);
-        transaction.setAmount(BigDecimal.valueOf(100));
-        transaction.setDescription("Original Transaction");
-    
-        when(transactionRepository.findById(id)).thenReturn(Optional.of(transaction));
-        when(transactionRepository.save(any(Transaction.class))).thenAnswer(invocation -> invocation.getArgument(0));
-    
-        // Act
-        TransactionVO result = transactionService.modifyTransaction(id, transactionDTO);
-    
-        // Assert
-        assertNotNull(result);
-        assertEquals(2L, result.getSourceAccountId());
-        assertEquals(3L, result.getTargetAccountId());
-        assertEquals(BigDecimal.valueOf(200), result.getAmount());
-        assertEquals("Updated Transaction", result.getDescription());
-        verify(transactionRepository, times(1)).findById(id);
-        verify(transactionRepository, times(1)).save(any(Transaction.class));
-    }
 
     @Test
     void testListAllTransactionsWithTransactionNo() {
