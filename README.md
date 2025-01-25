@@ -155,17 +155,8 @@ docker run -d -p 80:8080 hsbc-homework-transaction:v1.0
 ---
 
 ### 测试
-#### 功能测试(部分case截图)
-* 分页获取交易记录
-![img.png](images/list.png)
-* 根据ID查看交易记录
-![img.png](images/get_transaction_by_id.png)
-* 创建交易记录
-![img.png](images/add_repeat_transaction.png)
-* 修改交易记录
-![img.png](images/modify_transaction.png)
-* 删除交易记录
-![img.png](images/delete_not_exist.png)
+#### 功能测试
+![img.png](images/test_cases.png)
 #### 单元测试
 使用 JUnit 5和Mockito编写单元测试，确保每个API接口的正确性和可靠性。在项目根目录下，使用以下命令运行单元测试：
 ```sh

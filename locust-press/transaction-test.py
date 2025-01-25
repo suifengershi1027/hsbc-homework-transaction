@@ -57,7 +57,7 @@ class TransactionUser(HttpUser):
         else:
             logging.warning(f"Create transaction failed with status code: {response.status_code}")
 
-    @task(1)
+    @task(2)
     def update_transaction(self):
         """
         测试修改交易的接口
@@ -85,7 +85,7 @@ class TransactionUser(HttpUser):
             # 发送 PUT 请求到修改交易的接口
             self.client.put(f"/api/transactions/{transaction_id}", json=updated_transaction_data)
 
-    @task(1)
+    @task(2)
     def delete_transaction(self):
         """
         测试删除交易的接口
@@ -100,7 +100,7 @@ class TransactionUser(HttpUser):
             # 从已创建的交易 ID 列表中移除该 ID
             self.created_transaction_ids.remove(transaction_id)
 
-    @task(1)
+    @task(2)
     def get_transaction_by_id(self):
         """
         测试根据交易 ID 查询交易信息的接口
