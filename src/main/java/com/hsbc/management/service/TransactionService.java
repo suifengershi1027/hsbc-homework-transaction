@@ -1,6 +1,7 @@
 package com.hsbc.management.service;
 
 import com.hsbc.management.common.dto.TransactionDTO;
+import com.hsbc.management.common.dto.TransactionModifyDTO;
 import com.hsbc.management.common.vo.TransactionVO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,7 +30,7 @@ public interface TransactionService {
      * @param dto 交易信息对象，包含需要修改的交易信息
      * @return 修改后的交易信息对象
      */
-    TransactionVO modifyTransaction(Long id, TransactionDTO dto);
+    TransactionVO modifyTransaction(Long id, TransactionModifyDTO dto);
 
     /**
      * 获取所有交易记录。

@@ -13,6 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.hsbc.management.common.dto.TransactionDTO;
+import com.hsbc.management.common.dto.TransactionModifyDTO;
 import com.hsbc.management.common.vo.TransactionVO;
 import com.hsbc.management.service.TransactionService;
 
@@ -137,7 +138,7 @@ public class TransactionControllerTest{
         transactionVO.setId(1L);
         transactionVO.setTransactionNo("12345");
     
-        when(transactionService.modifyTransaction(anyLong(), any(TransactionDTO.class))).thenReturn(transactionVO);
+        when(transactionService.modifyTransaction(anyLong(), any(TransactionModifyDTO.class))).thenReturn(transactionVO);
     
         // Act & Assert
         mockMvc.perform(put("/transactions/{id}", 1L)

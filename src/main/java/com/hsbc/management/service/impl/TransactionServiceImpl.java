@@ -1,6 +1,7 @@
 package com.hsbc.management.service.impl;
 
 import com.hsbc.management.common.dto.TransactionDTO;
+import com.hsbc.management.common.dto.TransactionModifyDTO;
 import com.hsbc.management.common.vo.TransactionVO;
 import com.hsbc.management.dao.TransactionRepository;
 import com.hsbc.management.common.entity.Transaction;
@@ -66,7 +67,7 @@ public class TransactionServiceImpl implements TransactionService {
      */
     @Transactional
     @CacheEvict(value = "transactions", allEntries = true)
-    public TransactionVO modifyTransaction(Long id, TransactionDTO dto) {
+    public TransactionVO modifyTransaction(Long id, TransactionModifyDTO dto) {
         Optional<Transaction> optionalTransaction = transactionRepository.findById(id);
         if (optionalTransaction.isEmpty()) {
             throw new BizException("Transaction with id " + id + " does not exist.");
@@ -149,19 +150,5 @@ public class TransactionServiceImpl implements TransactionService {
         vo.setUpdateTime(transaction.getUpdateTime());
         vo.setTransactionNo(transaction.getTransactionNo());
         return vo;
-    }
-
-    /**
-     * 生成缓存键
-     *
-     * @param transactionNo 交易编号，可为空
-     * @param pageable      分页信息
-     * @return 生成的缓存键
-     */
-    private String generateCacheKey(String transactionNo, Pageable pageable) {
-        if (Objects.nonNull(transactionNo)) {
-            return transactionNo + "_" + pageable.getPageNumber() + "_" + pageable.getPageSize();
-        }
-        return "all_" + pageable.getPageNumber() + "_" + pageable.getPageSize();
     }
 }

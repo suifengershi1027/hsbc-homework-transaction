@@ -2,6 +2,7 @@ package com.hsbc.management.controller;
 
 import com.hsbc.management.common.BaseResult;
 import com.hsbc.management.common.dto.TransactionDTO;
+import com.hsbc.management.common.dto.TransactionModifyDTO;
 import com.hsbc.management.common.vo.TransactionVO;
 import com.hsbc.management.service.TransactionService;
 import jakarta.validation.Valid;
@@ -80,7 +81,7 @@ public class TransactionController {
      * @return 包含修改后的交易信息的BaseResult对象
      */
     @PutMapping("/{id}")
-    public BaseResult<TransactionVO> modifyTransaction(@PathVariable Long id, @RequestBody TransactionDTO dto) {
+    public BaseResult<TransactionVO> modifyTransaction(@PathVariable Long id, @RequestBody @Valid TransactionModifyDTO dto) {
         TransactionVO vo = transactionService.modifyTransaction(id, dto);
         return BaseResult.succeed(vo);
     }
