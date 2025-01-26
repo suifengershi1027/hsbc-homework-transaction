@@ -9,8 +9,6 @@
 ### 访问地址
 #### 演示环境（阿里云服务器，docker部署）：
 swagger访问路径: http://47.92.29.194/api/swagger-ui/index.html#/
-#### 本地运行
-swagger访问路径: http://localhost:8080/api/swagger-ui/index.html#/
 ![img.png](images/swagger-ui.png)
 
 ### Docker 容器部署方式
@@ -173,6 +171,7 @@ mvn test
 ##### 压测报告
 ![img.png](images/press_stats_100.png)
 ![img.png](images/press_response_100.png)
+#### 服务器监控
 ![img.png](images/press_monitor.png)
 
 
