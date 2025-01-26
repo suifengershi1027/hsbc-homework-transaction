@@ -38,7 +38,7 @@ docker run -d -p 80:8080 hsbc-homework-transaction:v1.0
 * Mockito：用于模拟对象和行为，辅助单元测试。
 
 ### 设计方案
-![img.png](images/design.png)
+![img.png](images/design.jpg)
 #### 数据库设计
 * 使用 H2 内存数据库存储交易记录。
 * 交易记录Transaction包含以下字段：
