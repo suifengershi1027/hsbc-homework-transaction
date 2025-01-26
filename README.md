@@ -3,7 +3,7 @@
 本项目是一个简单的银行交易管理系统，基于Java 21和Spring Boot构建。系统允许用户记录、查看和管理金融交易，支持添加、修改、删除交易记录以及分页显示交易列表。所有数据存储在内存中的 H2 数据库中，无需持久化存储。为提高性能，使用了 Spring Cache 缓存机制。项目遵循 RESTful API 设计原则，具有清晰的 API 结构，同时实现了全面的测试，包括单元测试和压力测试。
 
 ### 访问地址
-#### 演示环境（阿里云服务器，docker部署）：
+#### 演示环境（阿里云服务器，docker部署，服务器配置：2vCPU/2GiB-ESSD云盘/40GiB）：
 swagger访问路径: http://47.92.29.194/api/swagger-ui/index.html#/
 ![img.png](images/swagger-ui.png)
 
@@ -38,6 +38,7 @@ docker run -d -p 80:8080 hsbc-homework-transaction:v1.0
 * Mockito：用于模拟对象和行为，辅助单元测试。
 
 ### 设计方案
+![img.png](images/design.png)
 #### 数据库设计
 * 使用 H2 内存数据库存储交易记录。
 * 交易记录Transaction包含以下字段：
